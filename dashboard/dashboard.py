@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 st.sidebar.markdown("# Proyek Analisis Data")
 st.sidebar.markdown("Nama : Kevin Junus Ketti")
