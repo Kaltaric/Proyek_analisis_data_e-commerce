@@ -58,7 +58,12 @@ top_ten_product_category.plot.pie(
 st.subheader(f"Top 10 Kategori Terlaris di Bulan {month_mapping[month]} {year}")
 plt.ylabel("")
     
-plt.legend(top_ten_product_category.index, loc='center left', bbox_to_anchor=(1.2, 0.5))
+max_label_length = max([len(label) for label in top_ten_product_category.index])
+max_value_length = max([len(str(order)) for order in top_ten_product_category.values])
+labels_with_sales = [f'{label:<{max_label_length}} : {order:>{max_value_length}}' for label, order in zip(top_ten_product_category.index, top_ten_product_category.values)]
+top_ten_product_category.plot.pie(y=top_ten_product_category.values, labels=top_ten_product_category.index, autopct='%1.1f%%', legend=False)
+plt.legend(labels_with_sales, loc='center left', bbox_to_anchor=(1.2, 0.5))
+
 st.pyplot(plt)
 st.markdown("---")
 
